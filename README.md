@@ -37,6 +37,18 @@ It runs on `windows-latest`, builds the x64 MSI, and uploads:
 
 Tagging a release like `v1.0.0` also attaches the MSI to the GitHub Release.
 
+## GitHub Packages auto-publish
+
+Workflow file:
+- `.github/workflows/publish-github-package.yml`
+
+On every push to `main`/`master`, it publishes an npm package to GitHub Packages:
+- package name: `@<repo-owner>/cs2overlay-electron`
+- version format: `<base-version>-ci.<run_number>`
+
+This makes a package entry appear under the repo/account Packages page automatically.
+It is chained to run after the `Build Windows MSI` workflow completes successfully on `main`/`master` (or can be started manually via workflow dispatch).
+
 ## CS2 GSI config
 
 The app now tries to auto-install `gamestate_integration_cs2overlay.cfg` on startup into detected CS2 `cfg` folders (Steam default + library folders).
