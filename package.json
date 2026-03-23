@@ -35,6 +35,11 @@
         "msi"
       ]
     },
+    "msi": {
+      "artifactName": "${productName}-${version}-${arch}.msi",
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": false
+    },
     "asar": true
   },
   "dependencies": {
